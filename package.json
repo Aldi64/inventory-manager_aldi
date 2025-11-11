@@ -1,0 +1,13 @@
+{
+  "name": "inventory-manager",
+  "version": "1.0.0",
+  "description": "Inventory management system with unit tests",
+  "main": "main.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node main.js"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0"
+  }
+}
