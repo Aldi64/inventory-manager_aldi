@@ -1,17 +1,8 @@
-// Inventory Manager Functions
-
 class InventoryManager {
   constructor() {
     this.inventory = {};
   }
 
-  /**
-   * Add item to inventory
-   * @param {Object} inventory - Current inventory object
-   * @param {string} item - Item name to add
-   * @param {number} qty - Quantity to add
-   * @returns {Object} Updated inventory
-   */
   addItem(inventory, item, qty) {
     if (typeof item !== 'string' || item.trim() === '') {
       throw new Error('Item name must be a non-empty string');
@@ -29,13 +20,6 @@ class InventoryManager {
     return inventory;
   }
 
-  /**
-   * Remove item from inventory
-   * @param {Object} inventory - Current inventory object
-   * @param {string} item - Item name to remove
-   * @param {number} qty - Quantity to remove
-   * @returns {Object} Updated inventory
-   */
   removeItem(inventory, item, qty) {
     if (typeof item !== 'string' || item.trim() === '') {
       throw new Error('Item name must be a non-empty string');
@@ -57,7 +41,6 @@ class InventoryManager {
 
     inventory[item] -= qty;
 
-    // Remove item if quantity becomes zero
     if (inventory[item] === 0) {
       delete inventory[item];
     }
@@ -65,17 +48,10 @@ class InventoryManager {
     return inventory;
   }
 
-  /**
-   * Get current inventory
-   * @returns {Object} Current inventory
-   */
   getInventory() {
     return { ...this.inventory };
   }
 
-  /**
-   * Clear inventory
-   */
   clearInventory() {
     this.inventory = {};
   }
