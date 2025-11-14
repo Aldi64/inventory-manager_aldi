@@ -8,7 +8,7 @@ describe('Inventory Manager Tests', () => {
     inventoryManager.clearInventory();
   });
 
-  // ===== VALID TESTS (Expected to Pass) =====
+  // VALID TESTS
 
   test('VALID: Add 3 apples to empty inventory', () => {
     const inventory = inventoryManager.getInventory();
@@ -26,7 +26,7 @@ describe('Inventory Manager Tests', () => {
     expect(inventory.oranges).toBe(5);
   });
 
-  // ===== INVALID TESTS (Handles wrong input properly) =====
+  // INVALID TESTS
 
   test('INVALID: Remove 5 apples from empty inventory', () => {
     const inventory = inventoryManager.getInventory();
@@ -42,16 +42,16 @@ describe('Inventory Manager Tests', () => {
     }).toThrow('Quantity must be a positive integer');
   });
 
-  // ===== INTENTIONAL BREAK TEST (Fails on purpose) =====
+  // INTENTIONAL BREAK TEST
 
-  //   test('INTENTIONAL BREAK: Expect incorrect inventory count', () => {
-  //     const inventory = inventoryManager.getInventory();
-  //     const result = inventoryManager.addItem(inventory, 'grapes', 5);
-  //     // INTENTIONAL FAILURE: Expecting 10 but actually added 5
-  //     expect(result.grapes).toBe(10); // This will fail on purpose
-  //   });
+  test('INTENTIONAL BREAK: Expect incorrect inventory count', () => {
+    const inventory = inventoryManager.getInventory();
+    const result = inventoryManager.addItem(inventory, 'grapes', 5);
+    // INTENTIONAL FAILURE
+    expect(result.grapes).toBe(10);
+  });
 
-  // Additional edge case tests
+  // Additional tests
   test('INVALID: Add item with empty name', () => {
     const inventory = inventoryManager.getInventory();
     expect(() => {
